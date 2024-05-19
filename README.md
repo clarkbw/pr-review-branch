@@ -4,7 +4,33 @@ This is a single action designed to manage the lifecycle of Neon database branch
 
 ## Examples
 
-### Fly.io - NodeJS
+```yaml
+on:
+  # Run this workflow on every major PR event
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+jobs:
+  # job name
+  pr-preview:
+    # os-platform
+    runs-on: ubuntu-latest
+
+    steps:
+      # action handles event in the following way
+      # opened      = create branch
+      # reopened    = create or reset branch
+      # synchronize = create or reset branch
+      # closed      = delete branch
+      - uses: neondatabase/pr-review-branch@v1
+```
+
+<details>
+<summary>
+
+**Fly.io - NodeJS**
+
+</summary>
 
 ```yaml
 name: PR Review
@@ -43,6 +69,8 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 ```
+
+</details>
 
 
 ## Inputs
