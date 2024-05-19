@@ -4,6 +4,8 @@ This is a single action designed to manage the lifecycle of Neon database branch
 
 ## Examples
 
+The following examples all build off this core example of how this action is intended to be used.
+
 ```yaml
 on:
   # Run this workflow on every major PR event
@@ -11,13 +13,11 @@ on:
     types: [opened, reopened, synchronize, closed]
 
 jobs:
-  # job name
   pr-preview:
-    # os-platform
     runs-on: ubuntu-latest
 
     steps:
-      # action handles event in the following way
+      # action handles events in the following way
       # opened      = create branch
       # reopened    = create or reset branch
       # synchronize = create or reset branch
@@ -26,11 +26,7 @@ jobs:
 ```
 
 <details>
-<summary>
-
-**Fly.io - NodeJS**
-
-</summary>
+<summary>Fly.io + NodeJS</summary>
 
 ```yaml
 name: PR Review
